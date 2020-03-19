@@ -1,0 +1,25 @@
+<style>
+  h2 {
+      position: relative;
+    }
+  
+  .icons{
+      position: absolute;
+      right: 5px;
+    }
+  
+  </style>
+ 
+ <div class="card">
+    <div class="card-body">          
+      <h2>{{element.title}} <span class="badge badge-{{element.get_label_display}}">{{ element.due_date}}</span>
+        <span class="icons">
+          {% if type == "RECOVER" %}
+          <a href="{{ element.get_recover_item_url }}"><i class="fas fa-times"></i></a>
+          {% else %}
+          <a href="{{ element.get_finished_item_url }}"><i class="fas fa-check"></i></a>
+          {% endif %}
+          <a href="{{ element.get_delete_item_url }}"><i class="fas fa-trash-alt" style="color:red"></i></a>
+        </span></h2>
+    </div>
+</div>
